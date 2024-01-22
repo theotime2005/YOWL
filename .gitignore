@@ -1,4 +1,4 @@
 back/node_modules
 back/.env
-.idea/
-.DS_Store/
+.idea
+.DS_Store
