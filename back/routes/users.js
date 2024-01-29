@@ -21,7 +21,7 @@ router.put("/:id", async (req, res) => {
       return res.status(500).json(err);
     }
   } else {
-    return res.status(403).json("Vous pouvez mofifier seulement votre post");
+    return res.status(403).json("Vous pouvez mofifier seulement votre compte");
   }
 });
 
@@ -30,7 +30,7 @@ router.delete("/:id", async (req, res) => {
   if (req.body.userId === req.params.id || req.body.isAdmin) {
     try {
       await User.findByIdAndDelete(req.params.id);
-      res.status(200).json("Le compte a été modifié");
+      res.status(200).json("Le compte a été supprimé");
     } catch (err) {
       return res.status(500).json(err);
     }
@@ -73,7 +73,6 @@ router.put("/:id/follow", async (req, res) => {
 });
 
 
-
 router.put("/:id/unfollow", async (req, res) => {
     if (req.body.userId !== req.params.id) {
       try {
@@ -82,7 +81,7 @@ router.put("/:id/unfollow", async (req, res) => {
         if (user.followers.includes(req.body.userId)) {
           await user.updateOne({ $pull: { followers: req.body.userId } });
           await currentUser.updateOne({ $pull: { followings: req.params.id } });
-          res.status(200).json("L'utilisateur a été supprimé");
+          res.status(200).json("Vous avez unfollow cet utlisateur");
         } else {
           res.status(403).json("Vous ne suivez pas cet utilisateur");
         }

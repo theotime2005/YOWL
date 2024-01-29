@@ -10,6 +10,15 @@ const UserSchema = new mongoose.Schema(
             unique: true,
 
         },
+        animaltype: {
+            type: String,
+            required: false,
+        },
+
+        ageofanimal: {
+            type: Number,
+            required: false,
+        },
 
         email: {
             type: String,
@@ -45,14 +54,8 @@ const UserSchema = new mongoose.Schema(
         description: {
             type: String,
             max: 50,
-        },
-        city: {
-            type: String,
-            max: 50,
-        },
-        from: {
-            type: String,
-            max: 50,
+        
+       
         },
         relationship: {
             type: Number,
