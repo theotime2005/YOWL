@@ -6,22 +6,29 @@ Remplacez la balise de remplacement MONGO_URL dans le fichier .env (ou tout autr
 
 
 README de l'API
-Introduction
+# Introduction
 Il s'agit d'une API Node.js basique utilisant Express et MongoDB, conçue pour gérer l'inscription d'utilisateurs, la connexion, la création de publications, la mise à jour, la suppression, la gestion de profil utilisateur, ainsi que le suivi/désabonnement d'autres utilisateurs. L'API utilise bcrypt pour le hachage des mots de passe et MongoDB comme base de données.
 
-Mise en route
-Prérequis
+# Mise en route
+## Prérequis
 Node.js installé
 Un compte MongoDB Atlas (ou une autre instance MongoDB)
 Un éditeur de code (par exemple, VSCode)
-Installation
-Clonez le dépôt : git clone https://github.com/your-username/your-repo.git
-Accédez au répertoire du projet : cd your-repo
-Installez les dépendances : npm install
-Configuration
+### Installation
+Clonez le dépôt :
+```bash
+git clone https://github.com/theotime2005/YOWL.git
+cd YOWL/back
+```
+Installez les dépendances :
+```bash
+npm install
+```
+### Configuration
 Obtenez une URI MongoDB auprès de MongoDB Atlas ou de votre instance MongoDB.
 Remplacez la balise de remplacement MONGO_URL dans .env par votre véritable URI MongoDB.
-Utilisation
+
+# Utilisation
 1. Authentification de l'utilisateur
 Inscrire un utilisateur
 Endpoint : /register
