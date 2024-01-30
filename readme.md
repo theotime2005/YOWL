@@ -31,10 +31,11 @@ npm install
 Obtenez une URI MongoDB auprès de MongoDB Atlas ou de votre instance MongoDB.
 Vous devez créer un fichier ".env" dans le dossier back et y ajouter les lignes suivantes, en les complétant avec vos informations d'identifications
 ```env
-HOST = "url_mongo_db"
+MONGO_URL = "url_mongo_db"
 MAIL_SERVER="smtp.myserver.com"
 MAIL_ADRESS="votre_adresse@myserver.com"
 MAIL_PASSWORD="votre_mot_de_passe"
+```
 
 ### Utilisation
 #### Authentification de l'utilisateur
@@ -43,7 +44,6 @@ MAIL_PASSWORD="votre_mot_de_passe"
 http://localhost:8800/api/auth/register
 Content-Type: application/json
 ```
-Méthode : POST
 Description : Inscrivez un nouvel utilisateur avec un nom d'utilisateur, un e-mail et un mot de passe uniques.
 Corps de la requête :
 ```json
