@@ -10,7 +10,7 @@ exports.confirmation_subscription = (user_name) => {
     <footer>
     <p>Copyright © Pets INC</p>
     </footer>
-    </body>body>
+    </body>
     `;
     const style = `
     <style>
