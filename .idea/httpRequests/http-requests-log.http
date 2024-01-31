@@ -1,0 +1,374 @@
+POST http://localhost:8800/api/auth/register
+Content-Type: application/json
+Content-Length: 90
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "username": "Théotime",
+  "email": "t.berthod@outlook.com",
+  "password": "TESTTTT"
+}
+
+<> 2024-01-30T135519.500.json
+
+###
+
+POST http://localhost:8800/api/auth/register
+Content-Type: application/json
+Content-Length: 90
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "username": "Théotime",
+  "email": "t.berthod@outlook.com",
+  "password": "TESTTTT"
+}
+
+<> 2024-01-30T135257.500.json
+
+###
+
+POST http://localhost:8800/api/auth/register
+Content-Type: application/json
+Content-Length: 90
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "username": "Théotime",
+  "email": "t.berthod@outlook.com",
+  "password": "TESTTTT"
+}
+
+<> 2024-01-30T135037.500.json
+
+###
+
+POST http://localhost:8800/api/auth/register
+Content-Type: application/json
+Content-Length: 90
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "username": "Théotime",
+  "email": "t.berthod@outlook.com",
+  "password": "TESTTTT"
+}
+
+<> 2024-01-30T134933.500.json
+
+###
+
+POST http://localhost:8800/api/auth/register
+Content-Type: application/json
+Content-Length: 90
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "username": "Théotime",
+  "email": "t.berthod@outlook.com",
+  "password": "TESTTTT"
+}
+
+<> 2024-01-30T134713.500.json
+
+###
+
+POST http://localhost:8800/api/auth/register
+Content-Type: application/json
+Content-Length: 90
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "username": "Théotime",
+  "email": "t.berthod@outlook.com",
+  "password": "TESTTTT"
+}
+
+<> 2024-01-30T134526.500.json
+
+###
+
+POST http://localhost:8800/api/auth/register
+Content-Type: application/json
+Content-Length: 90
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "username": "Théotime",
+  "email": "t.berthod@outlook.com",
+  "password": "TESTTTT"
+}
+
+<> 2024-01-30T134421.500.json
+
+###
+
+POST http://localhost:8800/api/auth/register
+Content-Type: application/json
+Content-Length: 90
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "username": "Théotime",
+  "email": "t.berthod@outlook.com",
+  "password": "TESTTTT"
+}
+
+<> 2024-01-30T134128.500.json
+
+###
+
+POST http://localhost:8800/api/auth/register
+Content-Type: application/json
+Content-Length: 90
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "username": "Théotime",
+  "email": "t.berthod@outlook.com",
+  "password": "TESTTTT"
+}
+
+<> 2024-01-30T134037.500.json
+
+###
+
+POST http://localhost:8800/api/auth/register
+Content-Type: application/json
+Content-Length: 90
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "username": "Théotime",
+  "email": "t.berthod@outlook.com",
+  "password": "TESTTTT"
+}
+
+<> 2024-01-30T133944.500.json
+
+###
+
+POST http://localhost:8800/api/auth/register
+Content-Type: application/json
+Content-Length: 90
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "username": "Théotime",
+  "email": "t.berthod@outlook.com",
+  "password": "TESTTTT"
+}
+
+<> 2024-01-30T133740.500.json
+
+###
+
+POST http://localhost:8800/api/auth/register
+Content-Type: application/json
+Content-Length: 90
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "username": "Théotime",
+  "email": "t.berthod@outlook.com",
+  "password": "TESTTTT"
+}
+
+<> 2024-01-30T133123.500.json
+
+###
+
+POST http://localhost:8800/api/auth/register
+Content-Type: application/json
+Content-Length: 90
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "username": "Théotime",
+  "email": "t.berthod@outlook.com",
+  "password": "TESTTTT"
+}
+
+<> 2024-01-30T133051.500.json
+
+###
+
+POST http://localhost:8800/api/auth/register
+Content-Type: application/json
+Content-Length: 90
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "username": "Théotime",
+  "email": "t.berthod@outlook.com",
+  "password": "TESTTTT"
+}
+
+<> 2024-01-30T133010.500.json
+
+###
+
+POST http://localhost:8800/api/auth/register
+Content-Type: application/json
+Content-Length: 90
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "username": "Théotime",
+  "email": "t.berthod@outlook.com",
+  "password": "TESTTTT"
+}
+
+<> 2024-01-30T132851.500.json
+
+###
+
+POST http://localhost:8800/api/auth/register
+Content-Type: application/json
+Content-Length: 90
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "username": "Théotime",
+  "email": "t.berthod@outlook.com",
+  "password": "TESTTTT"
+}
+
+<> 2024-01-30T132737.500.json
+
+###
+
+POST http://localhost:8800/api/auth/register
+Content-Type: application/json
+Content-Length: 90
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "username": "Théotime",
+  "email": "t.berthod@outlook.com",
+  "password": "TESTTTT"
+}
+
+<> 2024-01-30T132627.500.json
+
+###
+
+POST http://localhost:8800/api/auth/register
+Content-Type: application/json
+Content-Length: 90
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "username": "Théotime",
+  "email": "t.berthod@outlook.com",
+  "password": "TESTTTT"
+}
+
+<> 2024-01-30T132104.500.json
+
+###
+
+POST http://localhost:8800/auth/register
+Content-Type: application/json
+Content-Length: 90
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "username": "Théotime",
+  "email": "t.berthod@outlook.com",
+  "password": "TESTTTT"
+}
+
+<> 2024-01-30T132022.404.html
+
+###
+
+POST http://localhost:8800/register
+Content-Type: application/json
+Content-Length: 90
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "username": "Théotime",
+  "email": "t.berthod@outlook.com",
+  "password": "TESTTTT"
+}
+
+<> 2024-01-30T120535.404.html
+
+###
+
+POST http://localhost:8800/api/register
+Content-Type: application/json
+Content-Length: 90
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "username": "Théotime",
+  "email": "t.berthod@outlook.com",
+  "password": "TESTTTT"
+}
+
+<> 2024-01-30T120400.404.html
+
+###
+
+POST http://localhost:8800
+Content-Type: application/json
+Content-Length: 90
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.9)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "username": "Théotime",
+  "email": "t.berthod@outlook.com",
+  "password": "TESTTTT"
+}
+
+<> 2024-01-30T120325.404.html
+
+###
+
