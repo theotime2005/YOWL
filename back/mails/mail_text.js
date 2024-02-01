@@ -1,6 +1,7 @@
 // This file is only for the mmails documents
 // It's use for reduce the files content
 
+const {config} = require("dotenv");
 exports.confirmation_subscription = (user_name) => {
     const content = `
     <body>
@@ -58,6 +59,6 @@ exports.confirmation_subscription = (user_name) => {
         ${content}
         ${style}
      </html>
-     `
+     `;
     return document_email
 }

@@ -21,22 +21,22 @@ router.post("/register", async (req, res) => {
 
     const user = await newUser.save();
 
-    // Sending email
-    const mail_option = {
-      from: process.env.MAIL_ADRESS,
-      to: req.body.email,
-      subject: "Confirmation d'inscription",
-      html: mail_text.confirmation_subscription(req.body.username)
+    // Sending email only if variables exists
+    if (process.env.MAIL_ADRESS && process.env.MAIL_SE) {
+      const mail_option = {
+        from: process.env.MAIL_ADRESS,
+        to: req.body.email,
+        subject: "Confirmation d'inscription",
+        html: mail_text.confirmation_subscription(req.body.username)
+      }
+      email.sendMail(mail_option, (error, info) => {
+        if (error) {
+          console.error(error);
+        } else {
+          console.log(info);
+        }
+      })
     }
-    console.log(mail_option);
-    email.sendMail(mail_option, (error, info) => {
-      if (error) {
-        console.error(error);
-      }
-      else {
-        console.log(info);
-      }
-    })
 
     res.status(200).json(user);
   } catch (err) {
