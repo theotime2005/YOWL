@@ -22,7 +22,7 @@ router.post("/register", async (req, res) => {
     const user = await newUser.save();
 
     // Sending email only if variables exists
-    if (process.env.MAIL_ADRESS && process.env.MAIL_SE) {
+    if (process.env.MAIL_ADRESS && process.env.MAIL_SERVER) {
       const mail_option = {
         from: process.env.MAIL_ADRESS,
         to: req.body.email,
