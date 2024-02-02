@@ -11,12 +11,17 @@ const router = createRouter({
     {
       path: '/register',
       name: 'Créer un compte',
-      component: () => import('@/views/Register.vue')
+      component: () => import('@/views/user/Register.vue')
     },
     {
       path: '/login',
       name: 'Connexion',
-      component: () => import('@/views/Login.vue')
+      component: () => import('@/views/user/Login.vue')
+    },
+    {
+      path: '/forgotpassword',
+      name: 'Mot de passe oublié',
+      component: () => import('@/views/user/forgotPassword.vue')
     },
     {
       path: '/home',

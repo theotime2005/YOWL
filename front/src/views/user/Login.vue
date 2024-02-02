@@ -75,6 +75,7 @@ export default {
       {{ is_visible ? 'Masquer' : 'Afficher' }} le mot de passe
     </button>
     <p>{{message_password}}</p>
+    <button type="button" @click="$router.push('/forgotpassword')">Mot de passe oublié?</button>
     <button type="submit">Connexion</button>
   </form>
 </template>

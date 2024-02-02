@@ -78,7 +78,10 @@ router.post('/resetpassword', async (req, res, next) => {
   // Send a email with the link to reset password
   try {
     const user = await User.findOne({email: req.body.email});
-    !email && res.status(404).json("utilisateur non trouvé");
+    if (!email) {
+      return res.status(404).json("utilisateur non trouvé");
+    }
+    console.log(user);
     const mail_token = jwt.sign({userId: user._id}, process.env.TOKEN_CHARACTER, {expiresIn: '1h'});
     const mail_option = {
       to: req.body.email,
