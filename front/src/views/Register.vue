@@ -72,6 +72,7 @@ export default {
         });
         if (request.status===200) {
           console.log("Registration sucessfull.");
+          this.$router.push('/login');
         }
       } catch (error) {
         console.error(error)
@@ -91,7 +92,7 @@ export default {
     <input type="email" class="editBox" id="email" v-model="email" required>
     <label for="password">Mot de passe</label>
     <input :type="passwordType" class="editBox" id="password" v-model="password" required>
-    <button @click="toggle_hide_password">
+    <button type="button" @click="toggle_hide_password">
       {{ is_visible ? 'Masquer' : 'Afficher' }} le mot de passe
     </button>
     <p class="error">{{error_password}}</p>
