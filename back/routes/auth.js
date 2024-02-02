@@ -56,7 +56,7 @@ router.post("/login", async (req, res) => {
 
     res.status(200).json({
       username: user.username,
-      token: jwt.sign({user_id: user._id}, process.env.TOKEN_CHARACTER, {expiresIn: '1h'})
+      token: jwt.sign({userId: user._id, isAdmin: user.isAdmin}, process.env.TOKEN_CHARACTER, {expiresIn: '1h'})
     })
   }
   catch (err) {
@@ -70,7 +70,7 @@ router.post('/resetpassword', async (req, res, next) => {
   try {
     const user = await User.findOne({email: req.body.email});
     !email && res.status(404).json("utilisateur non trouvé");
-    const mail_token = jwt.sign({user_id: user._id}, process.env.TOKEN_CHARACTER, {expiresIn: '1h'});
+    const mail_token = jwt.sign({userId: user._id}, process.env.TOKEN_CHARACTER, {expiresIn: '1h'});
     const mail_option = {
       to: req.body.email,
       from: process.env.MAIL_ADRESS,
