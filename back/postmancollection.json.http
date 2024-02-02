@@ -1,0 +1,102 @@
+# socialmediaapp
+
+###
+# @name register user
+POST localhost:8800/api/auth/register
+Content-Type: application/json
+
+{
+    "username": "Theo",
+    "email": "theotimebd@gmail.com",
+    "password": "12345"
+}
+
+###
+# @name login
+POST localhost:8800/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "theotimebd@gmail.com",
+    "password": "12345"
+}
+
+###
+# @name Update user
+PUT localhost:8800/api/users/65b67c8e673c889e16ffc856
+Content-Type: application/json
+
+{
+    "description": "j'aime trop chris",
+    "userId": "65b67c8e673c889e16ffc856"
+}
+
+###
+# @name delete profil
+GET 
+
+###
+# @name voir un profil
+GET 
+
+###
+# @name follow
+PUT localhost:8800/api/users/65b68009a2f88c8fd91636f4/follow
+Content-Type: application/json
+
+{
+    "userId": "65b67c8e673c889e16ffc856"
+}
+
+###
+# @name unfollow
+PUT localhost:8800/api/users/65b68009a2f88c8fd91636f4/unfollow
+Content-Type: application/json
+
+{
+    "userId": "65b67c8e673c889e16ffc856"
+}
+
+###
+# @name create post
+POST localhost:8800/api/posts
+Content-Type: application/json
+
+{
+    "userId":"65b67c8e673c889e16ffc856",
+    "description":"Chris a trop de charisme omg",
+    "image": "image.png"
+}
+
+###
+# @name update post
+PUT localhost:8800/api/posts/65b6c7d81ffa47be3ba52d87
+Content-Type: application/json
+
+{
+    "userId":"65b67c8e673c889e16ffc856",
+    "description": "Je ne suis rien sans chris"
+}
+
+###
+# @name delete post
+DELETE localhost:8800/api/posts/65b6c7d81ffa47be3ba52d87
+Content-Type: application/json
+
+{
+    "userId":"65b67c8e673c889e16ffc856"
+    
+}
+
+###
+# @name like and dislike
+PUT localhost:8800/api/posts/65b6c8cf1ffa47be3ba52d90/like
+Content-Type: application/json
+
+{
+    "userId":"65b68009a2f88c8fd91636f4"
+}
+
+###
+# @name timeline
+GET
