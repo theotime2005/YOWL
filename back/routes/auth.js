@@ -62,6 +62,7 @@ router.post("/login", async (req, res) => {
       return res.status(403).json("mauvais mot de passe")
     }
 
+    console.log(user);
     res.status(200).json({
       username: user.username,
       token: jwt.sign({userId: user._id, isAdmin: user.isAdmin}, process.env.TOKEN_CHARACTER, {expiresIn: '1h'})

@@ -16,7 +16,7 @@ export default {
       this.passwordType = this.is_visible ? "text" : "password";
     },
     get_request() {
-      if (this.identifier.includes("@")>0) {
+      if (this.identifier.includes("@")) {
         const request_body = {
           email: this.identifier,
           password: this.password
@@ -41,15 +41,17 @@ export default {
         },
         body: JSON.stringify(request_body)
       });
-      console.log(request.text());
-      if (request.status===404 || request.text()==="utilisateur non trouvé") {
+      if (request.status===404) {
         this.message_identifier="Nom d'utilisateur ou Email incorrecte";
         return
       }
-      else if (request.status===403 || request.text()==="mauvais mot de passe") {
+      else if (request.status===403) {
         this.message_password="Mot de passe incorrecte.";
         return;
       }
+      const response = await request.json();
+      sessionStorage.setItem("user_token", response.token);
+      sessionStorage.setItem("username", response.username);
       this.$router.push('/home');
     } catch (error) {
       console.error(error);
