@@ -24,6 +24,11 @@ const router = createRouter({
       component: () => import('@/views/user/forgotPassword.vue')
     },
     {
+      path: '/reset_password',
+      name: 'Réinitialiser votre mot de passe',
+      component: () => import('@/views/user/ResetPassword.vue')
+    },
+    {
       path: '/home',
       name: 'Accueil',
       component: () => import('@/views/Home.vue')

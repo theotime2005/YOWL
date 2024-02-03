@@ -104,7 +104,7 @@ router.post('/resetpassword', async (req, res, next) => {
   }
 })
 
-router.get("/check_token", (req, res, next) => {
+router.get("/check-token", (req, res, next) => {
   try {
     const user_token = req.headers.authorization.split(" ")[1];
     const decodedToken = jwt.verify(user_token, process.env.TOKEN_CHARACTER);

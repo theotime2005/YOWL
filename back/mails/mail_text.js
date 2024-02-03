@@ -71,7 +71,7 @@ exports.forgot_password = (username, user_token) => {
     <body>
         <h1>Réinitialisation du mot de passe</h1>
         <p>Bonjour ${username}. Vous avez demandé la réinitialisation de votre mot de passe. Cliquez sur le lien ci-dessous pour procéder à la réinitialisation.</p>
-        <a href="http://localhost:5173/forgotpassword?token=${encodeURIComponent(user_token)}">Rréinitialiser mon mot de passe</a>
+        <a href="http://localhost:5173/reset_password?token=${encodeURIComponent(user_token)}">Rréinitialiser mon mot de passe</a>
         <p>Si vous n'êtes pas à l'origine de cette demande, vous pouvez ignorer ce message.</p>
         <footer>
             <p>Copyright © PETS INC</p>
