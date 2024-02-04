@@ -4,9 +4,6 @@ module.exports = (req, res, next) => {
     // Check the autencity of token
     try {
         const req_token = req.headers.authorization.split(" ")[1];
-<<<<<<< HEAD
-=======
->>>>>>> backend
         const decoded_token = jwt.verify(req_token, process.env.TOKEN_CHARACTER);
         req.auth={
             userId: decoded_token.userId,
