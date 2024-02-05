@@ -56,10 +56,8 @@ export default {
     },
     valid_passwords() {
       if (this.password_1 === this.password_2 && this.verifierMotDePasse(this.password_1)) {
-        console.log("Mot de passe valide");
         return true;
       } else {
-        console.log("Mot de passe invalide");
         return false;
       }
     }

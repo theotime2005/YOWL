@@ -32,8 +32,9 @@ export default {
       if (!this.$refs.password.valid_passwords()) {
         return;
       }
+      this.password = this.$refs.password.password_1;
       const request_body = {
-        password: this.$refs.password.password_1
+        password: this.password
       };
       try {
         const request = await fetch("http://localhost:8800/api/users", {
@@ -41,7 +42,8 @@ export default {
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${this.$route.query.token}`
-          }
+          },
+          body: JSON.stringify(request_body)
         });
         if (request.status===200) {
           this.pageClose=true;
@@ -59,7 +61,7 @@ export default {
 
 <template>
   <h1>Réinitialisation du mot de passe</h1>
-  <form v-if="!pageClose && is_valid" @submit.prevent="change_password">
+  <form v-if="!pageClose && is_valid==true" @submit.prevent="change_password">
     <p>Veuillez remplir tous les champs</p>
     <Password ref="password"/>
     <button type="submit">Réinitialiser</button>

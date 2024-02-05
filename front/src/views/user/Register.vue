@@ -19,7 +19,6 @@ export default {
         return;
       }
       this.password=this.$refs.password.password_1;
-      console.log("Password: ", this.password);
       try {
         const request_body = {
           email: this.email,
