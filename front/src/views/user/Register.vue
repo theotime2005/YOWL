@@ -1,8 +1,10 @@
 <script>
+import Capchat from "@/components/Capchat.vue";
 import Password from "@/components/Password.vue";
 
 export default {
   components: {
+    Capchat,
     Password
   },
   data() {
@@ -14,8 +16,10 @@ export default {
   },
   methods: {
     async confirm_registration() {
-      const isValid = this.$refs.password.valid_passwords(); // Accès au composant Password via $refs
+      const isValid = this.$refs.password.valid_passwords();
       if (!isValid) {
+        return;
+      } else if (!this.$refs.capchat.is_valide) {
         return;
       }
       this.password=this.$refs.password.password_1;
@@ -54,6 +58,9 @@ export default {
       <label for="email">Email</label>
       <input type="email" class="editBox" id="email" v-model="email" required>
       <Password ref="password"/>
+      <hr>
+      <Capchat ref="capchat"/>
+      <hr>
       <button type="submit">Créer mon compte</button>
     </form>
   </div>

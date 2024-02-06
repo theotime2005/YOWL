@@ -1,7 +1,9 @@
 <script>
+import Capchat from "@/components/Capchat.vue";
 import Password from "@/components/Password.vue";
 export default {
   components: {
+    Capchat,
     Password
   },
   data() {
@@ -29,7 +31,7 @@ export default {
       }
     },
     async change_password() {
-      if (!this.$refs.password.valid_passwords()) {
+      if (!this.$refs.password.valid_passwords() || !this.$refs.capchat.is_valide) {
         return;
       }
       this.password = this.$refs.password.password_1;
@@ -64,6 +66,8 @@ export default {
   <form v-if="!pageClose && is_valid==true" @submit.prevent="change_password">
     <p>Veuillez remplir tous les champs</p>
     <Password ref="password"/>
+    <hr>
+    <Capchat ref="capchat"/>
     <button type="submit">Réinitialiser</button>
   </form>
   <div v-else-if="!is_valid">
