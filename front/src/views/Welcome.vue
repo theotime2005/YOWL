@@ -1,3 +1,11 @@
+<script>
+export default {
+  mounted() {
+    document.title="Bienvenu sur le site | PETS";
+  }
+}
+</script>
+
 <template>
   <div class="container">
     <h1>Bienvenue sur le site Pets</h1>

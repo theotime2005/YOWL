@@ -56,6 +56,7 @@ export default {
     }
   },
   mounted() {
+    document.title="Réinitialisation du mot de passe | PETS"
     this.check_token();
   }
 }

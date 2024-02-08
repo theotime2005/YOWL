@@ -1,5 +1,9 @@
-<script setup>
-
+<script>
+export default {
+  mounted() {
+    document.title="Accueil | PETS"
+  }
+}
 </script>
 
 <template>

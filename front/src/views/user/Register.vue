@@ -7,16 +7,7 @@
       <input type="text" id="username" class="editBox" v-model="username" required>
       <label for="email">Email</label>
       <input type="email" class="editBox" id="email" v-model="email" required>
-      <label for="password">Mot de passe</label>
-      <div class="password-input">
-        <input type="password" class="editBox" id="password" v-model="password" required>
-        <button type="button" @click="togglePasswordVisibility">Afficher/Masquer</button>
-      </div>
-      <label for="confirmPassword">Confirmer mot de passe</label>
-      <div class="password-input">
-        <input type="password" class="editBox" id="confirmPassword" v-model="confirmPassword" required>
-        <button type="button" @click="toggleConfirmPasswordVisibility">Afficher/Masquer</button>
-      </div>
+      <Password ref="password"/>
       <hr>
       <Capchat ref="capchat"/>
       <hr>
@@ -74,6 +65,9 @@ export default {
         console.error(error);
       }
     }
+  },
+  mounted() {
+    document.title="Créer un compte | PETS"
   }
 }
 </script>

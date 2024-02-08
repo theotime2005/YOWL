@@ -56,6 +56,9 @@ export default {
         console.error(error);
       }
     }
+  },
+  mounted() {
+    document.title="Connexion | PETS";
   }
 }
 </script>

@@ -68,15 +68,19 @@ export default {
 <template>
   <div>
     <label for="password">Mot de passe</label>
-    <input :type="passwordType_1" id="password" v-model="password_1" required>
-    <button type="button" @click="toggle_hide_password_1">
-      {{ is_visible_1 ? 'Masquer' : 'Afficher' }} le mot de passe
-    </button>
+    <div class="password-input">
+      <input :type="passwordType_1" id="password" v-model="password_1" required>
+      <button type="button" @click="toggle_hide_password_1">
+        {{ is_visible_1 ? 'Masquer' : 'Afficher' }} le mot de passe
+      </button>
+    </div>
     <label for="confirm_password">Confirmer votre mot de passe</label>
-    <input :type="passwordType_2" id="confirm_password" v-model="password_2" required>
-    <button type="button" @click="toggle_hide_password_2">
-      {{ is_visible_2 ? 'Masquer' : 'Afficher' }} le mot de passe
-    </button>
+    <div class="password-input">
+      <input :type="passwordType_2" id="confirm_password" v-model="password_2" required>
+      <button type="button" @click="toggle_hide_password_2">
+        {{ is_visible_2 ? 'Masquer' : 'Afficher' }} le mot de passe
+      </button>
+    </div>
     <p>{{ valid_passwords() ? 'Mot de passe valide' : 'Mot de passe invalide' }}</p>
     <p>Votre mot de passe doit comporter au moins 10 caractères dont une majuscule, une minuscule, un chiffre et un symbole.</p>
   </div>

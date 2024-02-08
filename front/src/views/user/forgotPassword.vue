@@ -30,6 +30,9 @@ export default {
         this.message_email="Erreur du serveur, veuillez réessayer ultérieurement"
       }
     }
+  },
+  mounted() {
+    document.title="Mot de passe oublié | PETS";
   }
 }
 </script>
