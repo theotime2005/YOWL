@@ -1,0 +1,2 @@
+MONGO_URL = mongodb://127.0.0.1:27017/pets?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.1.3/fff
+TOKEN_CHARACTER="abcdefghij"

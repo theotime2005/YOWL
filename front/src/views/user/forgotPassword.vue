@@ -43,7 +43,7 @@ export default {
         <label for="email">Email</label>
         <input type="email" id="email" class="editBox" v-model="email" required>
         <p class="error">{{message_email}}</p>
-        <button type="submit" class="reset-button">Demander la réinitialisation</button>
+          <button type="submit" class="reset-button">Demander la réinitialisation</button>
       </form>
     </div>
     <div v-else>
