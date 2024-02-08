@@ -15,8 +15,7 @@ README de l'API
 # Introduction
 Il s'agit d'une API Node.js basique utilisant Express et MongoDB, conçue pour gérer l'inscription d'utilisateurs, la connexion, la création de publications, la mise à jour, la suppression, la gestion de profil utilisateur, ainsi que le suivi/désabonnement d'autres utilisateurs. L'API utilise bcrypt pour le hachage des mots de passe et MongoDB comme base de données.
 
-# Mise en route
-## Prérequis
+# Mise en route## Prérequis
 Node.js installé
 Un compte MongoDB Atlas (ou une autre instance MongoDB)
 Un éditeur de code (par exemple, VSCode)
