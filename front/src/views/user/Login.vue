@@ -51,7 +51,7 @@ export default {
         const response = await request.json();
         sessionStorage.setItem("user_token", response.token);
         sessionStorage.setItem("username", response.username);
-        this.$router.push('/home');
+        this.$router.push('/post');
       } catch (error) {
         console.error(error);
       }
