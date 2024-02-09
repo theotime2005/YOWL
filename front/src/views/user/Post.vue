@@ -20,54 +20,84 @@
 </template>
 
 <script>
-import axios from 'axios';
+let authToken = '';
 
-export default {
-  data() {
-    return {
-      posts: [],
-      profile: null
-    };
-  },
-  created() {
-    this.fetchTimeline();
-    this.fetchUserProfile();
-  },
-  methods: {
-    async fetchTimeline() {
-      try {
-        const response = await axios.get('http://localhost:8800/api/timeline');
-        this.posts = response.data.posts;
-      } catch (error) {
-        console.error(error);
-      }
-    },
-    async fetchUserProfile() {
-      try {
-        const response = await axios.get('http://localhost:8800/api/profile');
-        this.profile = response.data.profile;
-      } catch (error) {
-        console.error(error);
-      }
-    },
-    async likePost(postId) {
-      try {
-        await axios.put(`http://localhost:8800/api/posts/${postId}/like`);
-        this.fetchTimeline();
-      } catch (error) {
-        console.error(error);
-      }
-    },
-    async deletePost(postId) {
-      try {
-        await axios.delete(`http://localhost:8800/api/posts/${postId}`);
-        this.fetchTimeline();
-      } catch (error) {
-        console.error(error);
-      }
-    },
-    async updateProfile() {
-    }
+async function createPost(description) {
+  try {
+    const response = await fetch('http://localhost:8800/api/posts', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${authToken}`
+      },
+      body: JSON.stringify({
+        userId: '65b67c8e673c889e16ffc856',
+        description: description,
+        image: 'image.png'
+      })
+    });
+    const data = await response.json();
+    console.log('Post created:', data);
+  } catch (error) {
+    console.error('Error creating post:', error);
+  }
+}
+
+async function updatePost(postId, description) {
+  try {
+    const response = await fetch(`http://localhost:8800/api/posts/${postId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${authToken}`
+      },
+      body: JSON.stringify({
+        userId: '65b67c8e673c889e16ffc856',
+        description: description
+      })
+    });
+    const data = await response.json();
+    console.log('Post updated:', data);
+  } catch (error) {
+    console.error('Error updating post:', error);
+  }
+}
+
+async function deletePost(postId) {
+  try {
+    const response = await fetch(`http://localhost:8800/api/posts/${postId}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${authToken}`
+      },
+      body: JSON.stringify({
+        userId: '65b67c8e673c889e16ffc856'
+      })
+    });
+    const data = await response.json();
+    console.log('Post deleted:', data);
+  } catch (error) {
+    console.error('Error deleting post:', error);
+  }
+}
+
+async function toggleLike(postId) {
+  try {
+    const response = await fetch(`http://localhost:8800/api/posts/${postId}/like`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${authToken}`
+      },
+      body: JSON.stringify({
+        userId: '65b68009a2f88c8fd91636f4'
+      })
+    });
+    const data = await response.json();
+    console.log('Like toggled:', data);
+  } catch (error) {
+    console.error('Error toggling like:', error);
   }
 }
 </script>
