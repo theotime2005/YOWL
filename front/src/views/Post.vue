@@ -20,18 +20,15 @@
 </template>
 
 <script>
-let authToken = '';
-
 async function createPost(description) {
   try {
     const response = await fetch('http://localhost:8800/api/posts', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${authToken}`
+        'Authorization': `Bearer ${sessionStorage.getItem("user_token")}`
       },
       body: JSON.stringify({
-        userId: '65b67c8e673c889e16ffc856',
         description: description,
         image: 'image.png'
       })
@@ -43,16 +40,15 @@ async function createPost(description) {
   }
 }
 
-async function updatePost(postId, description) {
+async function updatePost(description) {
   try {
-    const response = await fetch(`http://localhost:8800/api/posts/${postId}`, {
+    const response = await fetch(`http://localhost:8800/api/posts/${this.params.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${authToken}`
+        'Authorization': `Bearer ${sessionStorage.getItem("user_token")}`
       },
       body: JSON.stringify({
-        userId: '65b67c8e673c889e16ffc856',
         description: description
       })
     });
@@ -63,17 +59,14 @@ async function updatePost(postId, description) {
   }
 }
 
-async function deletePost(postId) {
+async function deletePost() {
   try {
-    const response = await fetch(`http://localhost:8800/api/posts/${postId}`, {
+    const response = await fetch(`http://localhost:8800/api/posts/${this.params.id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${authToken}`
+        'Authorization': `Bearer ${sessionStorage.getItem("user_token")}`
       },
-      body: JSON.stringify({
-        userId: '65b67c8e673c889e16ffc856'
-      })
     });
     const data = await response.json();
     console.log('Post deleted:', data);
@@ -82,13 +75,13 @@ async function deletePost(postId) {
   }
 }
 
-async function toggleLike(postId) {
+async function toggleLike() {
   try {
-    const response = await fetch(`http://localhost:8800/api/posts/${postId}/like`, {
+    const response = await fetch(`http://localhost:8800/api/posts/${this.params.id}/like`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${authToken}`
+        'Authorization': `Bearer ${sessionStorage.getItem("user_token")}`
       },
       body: JSON.stringify({
         userId: '65b68009a2f88c8fd91636f4'
