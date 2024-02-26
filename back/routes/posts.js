@@ -6,7 +6,8 @@ const User = require("../models/User");
 
 
 router.post("/", async (req, res) => {
-  const bodyContent = req.auth.userId+req.body
+  const bodyContent={...req.auth.userId, ...req.body};
+  console.log(bodyContent);
   const newPost = new Post(bodyContent);
   try {
     const savedPost = await newPost.save();

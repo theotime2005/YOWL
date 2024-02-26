@@ -38,7 +38,7 @@ export default {
         description: '',
         image: ''
       },
-      token: localStorage.getItem('user_token')
+      token: sessionStorage.getItem('user_token')
     };
   },
   mounted() {
@@ -69,10 +69,7 @@ export default {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${this.token}`
         },
-        body: JSON.stringify({
-        description: '',
-            image: ''
-        })
+        body: JSON.stringify(this.newPost)
       };
       fetch('http://localhost:8800/api/posts', requestOptions)
           .then(response => {
