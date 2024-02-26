@@ -1,29 +1,29 @@
 <template>
-  <div id="app">
-    <div v-if="posts.length > 0">
-      <h2>Timeline</h2>
-      <div class="post-container">
-        <div v-for="post in posts" :key="post._id" class="post">
-          <div class="post-content">{{ post.description }}</div>
-          <div class="post-actions">
-            <button @click="likePost(post._id)">Like</button>
-            <button @click="deletePost(post._id)">Delete</button>
-          </div>
+  <div class="posts-container">
+    <h2>Liste des publications</h2>
+    <div v-if="posts.length === 0">
+      <p>Aucune publication trouvée.</p>
+    </div>
+    <div v-else>
+      <div v-for="post in posts" :key="post._id" class="post">
+        <div class="post-header">
+          <p class="username">{{ post.username }}</p>
+        </div>
+        <div class="post-body">
+          <p class="description">{{ post.description }}</p>
+          <img v-if="post.image" :src="post.image" alt="Post image" class="post-image">
         </div>
       </div>
     </div>
-    <div v-if="profile">
-      <h2>User Profile</h2>
-      <div>{{ profile.username }}</div>
-      <div>{{ profile.email }}</div>
-      <button @click="updateProfile">Update Profile</button>
-    </div>
-
-    <div>
-      <h2>Test Functions</h2>
-      <button @click="testCreatePost">Test Create Post</button>
-      <button @click="testUpdatePost">Test Update Post</button>
-      <button @click="testToggleLike">Test Toggle Like</button>
+    <button @click="openPostForm">Nouvelle publication</button>
+    <div v-if="showPostForm" class="post-form-container">
+      <form @submit.prevent="submitPost">
+        <label>Description:</label>
+        <textarea v-model="newPost.description" required></textarea>
+        <label>Image (URL):</label>
+        <input type="text" v-model="newPost.image">
+        <button type="submit">Poster</button>
+      </form>
     </div>
   </div>
 </template>
@@ -33,163 +33,125 @@ export default {
   data() {
     return {
       posts: [],
-      profile: null
+      showPostForm: false,
+      newPost: {
+        description: '',
+        image: ''
+      },
+      token: localStorage.getItem('user_token')
     };
-  },
-  methods: {
-    async fetchPosts() {
-      try {
-        const response = await fetch('http://localhost:8800/api/posts');
-        const data = await response.json();
-        this.posts = data;
-        console.log('Posts fetched:', data);
-      } catch (error) {
-        console.error('Error fetching posts:', error);
-      }
-    },
-    async createPost(description) {
-      try {
-        const response = await fetch('http://localhost:8800/api/posts', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${sessionStorage.getItem("user_token")}`
-          },
-          body: JSON.stringify({
-            description: description,
-            image: 'image.png'
-          })
-        });
-        const data = await response.json();
-        console.log('Post created:', data);
-        this.fetchPosts();
-      } catch (error) {
-        console.error('Error creating post:', error);
-      }
-    },
-    async updatePost(id, description) {
-      try {
-        const response = await fetch(`http://localhost:8800/api/posts/${id}`, {
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${sessionStorage.getItem("user_token")}`
-          },
-          body: JSON.stringify({
-            description: description
-          })
-        });
-        const data = await response.json();
-        console.log('Post updated:', data);
-        this.fetchPosts();
-      } catch (error) {
-        console.error('Error updating post:', error);
-      }
-    },
-    async deletePost(id) {
-      try {
-        const response = await fetch(`http://localhost:8800/api/posts/${id}`, {
-          method: 'DELETE',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${sessionStorage.getItem("user_token")}`
-          },
-        });
-        const data = await response.json();
-        console.log('Post deleted:', data);
-        this.fetchPosts();
-      } catch (error) {
-        console.error('Error deleting post:', error);
-      }
-    },
-    async toggleLike(id) {
-      try {
-        const response = await fetch(`http://localhost:8800/api/posts/${id}/like`, {
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${sessionStorage.getItem("user_token")}`
-          },
-          body: JSON.stringify({
-            userId: '65b68009a2f88c8fd91636f4'
-          })
-        });
-        const data = await response.json();
-        console.log('Like toggled:', data);
-        this.fetchPosts();
-      } catch (error) {
-        console.error('Error toggling like:', error);
-      }
-    },
-
-    testCreatePost() {
-      this.createPost("Ceci est un nouveau post de test.");
-    },
-    testUpdatePost() {
-      const postId = this.posts.length > 0 ? this.posts[0]._id : null;
-      if (postId) {
-        this.updatePost(postId, "Nouveau contenu du post.");
-      }
-    },
-    testToggleLike() {
-      const postId = this.posts.length > 0 ? this.posts[0]._id : null;
-      if (postId) {
-        this.toggleLike(postId);
-      }
-    }
   },
   mounted() {
     this.fetchPosts();
+  },
+  methods: {
+    fetchPosts() {
+      fetch('http://localhost:8800/api/posts', {
+        headers: {
+          'Authorization': `Bearer ${this.token}`
+        }
+      })
+          .then(response => response.json())
+          .then(data => {
+            this.posts = data;
+          })
+          .catch(error => {
+            console.error('Une erreur s\'est produite lors de la récupération des publications :', error);
+          });
+    },
+    openPostForm() {
+      this.showPostForm = true;
+    },
+    submitPost() {
+      const requestOptions = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${this.token}`
+        },
+        body: JSON.stringify(this.newPost)
+      };
+      fetch('http://localhost:8800/api/posts', requestOptions)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Erreur lors de la création de la publication');
+            }
+            return response.json();
+          })
+          .then(data => {
+            console.log('Publication créée avec succès:', data);
+            this.fetchPosts();
+            this.showPostForm = false;
+            this.newPost.description = '';
+            this.newPost.image = '';
+          })
+          .catch(error => {
+            console.error('Erreur lors de la création de la publication :', error);
+          });
+    }
   }
 };
 </script>
 
 
-
-<style>
-#app {
-  max-width: 800px;
+<style scoped>
+.posts-container {
+  max-width: 600px;
   margin: 0 auto;
-  padding: 20px;
-  font-family: Arial, sans-serif;
-}
-
-h2 {
-  color: #333;
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-}
-
-.post-container {
-  display: flex;
-  flex-direction: column;
 }
 
 .post {
-  background-color: #fff;
-  border: 1px solid #ddd;
+  border: 1px solid #ccc;
   border-radius: 5px;
   margin-bottom: 20px;
   padding: 15px;
 }
 
-.post-content {
+.post-header {
   margin-bottom: 10px;
 }
 
-.post-actions button {
-  padding: 5px 10px;
-  font-size: 0.9rem;
+.username {
+  font-weight: bold;
+}
+
+.description {
+  margin-bottom: 10px;
+}
+
+.post-image {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+.post-form-container {
+  margin-top: 20px;
+}
+
+.post-form-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-form-container label {
+  margin-bottom: 5px;
+}
+
+.post-form-container textarea,
+.post-form-container input[type="text"] {
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.post-form-container button {
+  padding: 8px 15px;
   background-color: #007bff;
   color: #fff;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-right: 10px;
 }
 
-.post-actions button:hover {
+.post-form-container button:hover {
   background-color: #0056b3;
 }
 </style>

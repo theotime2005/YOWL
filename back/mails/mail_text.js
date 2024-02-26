@@ -1,6 +1,3 @@
-// This file is only for the mmails documents
-// It's use for reduce the files content
-
 const {config} = require("dotenv");
 
 exports.confirmation_subscription = (user_name) => {
@@ -16,7 +13,7 @@ exports.confirmation_subscription = (user_name) => {
     `;
     const style = `
     <style>
-    /* Style de base */
+    
     body {
         font-family: Arial, sans-serif;
         margin: 0;
@@ -45,13 +42,10 @@ exports.confirmation_subscription = (user_name) => {
         text-align: center;
     }
     
-    /* Style personnalisé */
     sgrong {
-        /* Style spécifique pour la balise sgrong (corrigez probablement une faute de frappe dans votre HTML) */
-        color: red; /* Par exemple */
+        color: red;
     }
     
-    /* Vous pouvez ajouter d'autres styles personnalisés selon vos préférences */
     </style>    
     `;
     document_email= `
@@ -79,7 +73,6 @@ exports.forgot_password = (username, user_token) => {
 </footer>
     </body>
     <style>
-        /* Style de base */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -90,7 +83,7 @@ body {
 h1 {
     color: #333;
     text-align: center;
-    margin-top: 50px; /* Espacement du haut */
+    margin-top: 50px;
 }
 
 p {
@@ -100,9 +93,9 @@ p {
 }
 
 a {
-    display: block; /* Affiche le lien en bloc pour une meilleure visibilité */
-    width: 200px; /* Largeur du lien */
-    margin: 20px auto; /* Centrer le lien */
+    display: block;
+    width: 200px;
+    margin: 20px auto;
     padding: 10px;
     text-align: center;
     background-color: #007bff;
@@ -112,7 +105,7 @@ a {
 }
 
 a:hover {
-    background-color: #0056b3; /* Couleur de fond au survol */
+    background-color: #0056b3;
 }
 
 footer {
