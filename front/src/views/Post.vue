@@ -69,7 +69,10 @@ export default {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${this.token}`
         },
-        body: JSON.stringify(this.newPost)
+        body: JSON.stringify({
+        description: '',
+            image: ''
+        })
       };
       fetch('http://localhost:8800/api/posts', requestOptions)
           .then(response => {
