@@ -51,7 +51,12 @@ export default {
           'Authorization': `Bearer ${this.token}`
         }
       })
-          .then(response => response.json())
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Erreur lors de la récupération des publications');
+            }
+            return response.json();
+          })
           .then(data => {
             this.posts = data;
           })
